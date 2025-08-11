@@ -310,7 +310,7 @@ const Index = () => {
                 <div className="flex items-center space-x-2">
                   <Badge>10+ Years</Badge>
                   <span className="text-muted-foreground">
-                    Frontend Development
+                    Frontend & Full Stack Development
                   </span>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -322,6 +322,10 @@ const Index = () => {
                 <div className="flex items-center space-x-2">
                   <Badge>Lead Developer</Badge>
                   <span className="text-muted-foreground">Team Leadership</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Badge>Start-up Founder</Badge>
+                  <span className="text-muted-foreground">Fractional CTO on Trustloop</span>
                 </div>
               </CardContent>
             </Card>

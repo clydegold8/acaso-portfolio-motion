@@ -51,9 +51,31 @@ const Index = () => {
     { name: "NuxtJS", years: 3.5, percentage: 35 },
     { name: "Tailwind CSS", years: 3, percentage: 30 },
     { name: "NextJS", years: 2.5, percentage: 25 },
+    { name: "Artificial Intelligence and LLM's", years: 5, percentage: 50 },
+    { name: "Leadership / Managerial", years: 5, percentage: 50 },
   ];
 
   const experiences = [
+    {
+      title: "Startup Co-Founder & Fractional CTO",
+      company: "Trustloop",
+      period: "2024 - Present",
+      description: `
+        As Startup Co-Founder & Fractional CTO at Trustloop, I helped turn a business idea from a close friend into a fully operational, 
+        customer-facing digital platform. I led the initial system architecture, technology strategy, and end-to-end development using a 
+        modern stack including React, Vue.js, Nuxt, and low-code tools like Wix and GoHighLevel to accelerate delivery and experimentation.
+
+        While I no longer handle day-to-day engineering, I continue to support the team in a strategic technical advisory capacity — 
+        guiding decisions on scalability, performance, and product direction. I also advise on dev workflows, infrastructure setup, and
+         vendor/tooling evaluations to align with long-term business goals.
+        `,
+      technologies: [
+        "Artificial Intelligence",
+        "LLM's",
+        "Leadership",
+        "Managerial",
+      ],
+    },
     {
       title: "Senior Lead Front-End Developer",
       company: "Storma",
@@ -464,7 +486,10 @@ const Index = () => {
                     </a>
                   </Button>
                   <Button variant="outline" size="icon">
-                    <a target="_blank" href="https://www.linkedin.com/in/clyde-ian-a-1a3339b1/">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/in/clyde-ian-a-1a3339b1/"
+                    >
                       <Linkedin className="h-4 w-4" />
                     </a>
                   </Button>

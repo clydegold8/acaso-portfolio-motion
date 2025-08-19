@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { Moon, Sun, Menu, X, Github, Linkedin, Mail } from "lucide-react";
+import achievementArchitecture from "@/assets/achievement-architecture.jpg";
+import achievementCollaboration from "@/assets/achievement-collaboration.jpg";
+import achievementPerformance from "@/assets/achievement-performance.jpg";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -170,7 +173,7 @@ const Index = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              {["home", "about", "skills", "experience", "contact"].map(
+              {["home", "about", "skills", "experience", "achievements", "contact"].map(
                 (item) => (
                   <button
                     key={item}
@@ -222,7 +225,7 @@ const Index = () => {
         <Collapsible open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
           <CollapsibleContent className="md:hidden bg-background border-t border-border">
             <div className="px-4 py-2 space-y-1">
-              {["home", "about", "skills", "experience", "contact"].map(
+              {["home", "about", "skills", "experience", "achievements", "contact"].map(
                 (item) => (
                   <button
                     key={item}
@@ -443,6 +446,128 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements Section */}
+      <section id="achievements" className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-primary mb-4">
+              Key Achievements
+            </h2>
+            <p className="text-muted-foreground">
+              Notable accomplishments throughout my career
+            </p>
+          </div>
+
+          <div className="space-y-12">
+            {/* Architecture Achievement */}
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div className="order-2 lg:order-1">
+                <img
+                  src={achievementArchitecture}
+                  alt="Scalable front-end architecture"
+                  className="rounded-lg shadow-lg hover-scale"
+                />
+              </div>
+              <div className="order-1 lg:order-2 space-y-4">
+                <h3 className="text-xl font-semibold text-primary">
+                  Scalable Front-End Architectures
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Building scalable front-end architectures using React, Vue, Angular, and Nuxt for enterprise-level applications, ensuring performance, maintainability, and cross-browser responsiveness.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary">React</Badge>
+                  <Badge variant="secondary">Vue</Badge>
+                  <Badge variant="secondary">Angular</Badge>
+                  <Badge variant="secondary">Enterprise Scale</Badge>
+                </div>
+              </div>
+            </div>
+
+            {/* Modernization Achievement */}
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div className="order-1">
+                <img
+                  src={achievementPerformance}
+                  alt="UI modernization and performance"
+                  className="rounded-lg shadow-lg hover-scale"
+                />
+              </div>
+              <div className="order-2 space-y-4">
+                <h3 className="text-xl font-semibold text-primary">
+                  UI Modernization & Performance
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Leading UI modernization efforts where I migrated legacy codebases into modern frameworks (React + TypeScript + TailwindCSS), improving performance and reducing technical debt. Implementing performance optimizations that cut page load times by up to 40%, resulting in a smoother user experience and measurable increases in user engagement.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary">TypeScript</Badge>
+                  <Badge variant="secondary">TailwindCSS</Badge>
+                  <Badge variant="secondary">40% Faster</Badge>
+                  <Badge variant="secondary">Legacy Migration</Badge>
+                </div>
+              </div>
+            </div>
+
+            {/* Collaboration Achievement */}
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div className="order-2 lg:order-1">
+                <img
+                  src={achievementCollaboration}
+                  alt="Team collaboration and mentoring"
+                  className="rounded-lg shadow-lg hover-scale"
+                />
+              </div>
+              <div className="order-1 lg:order-2 space-y-4">
+                <h3 className="text-xl font-semibold text-primary">
+                  Team Leadership & Mentoring
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Driving collaboration across teams, working closely with back-end engineers, designers, and stakeholders to deliver seamless, user-friendly applications on schedule. Mentoring junior developers by conducting code reviews, sharing best practices, and introducing scalable component patterns—helping elevate overall team productivity.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary">Leadership</Badge>
+                  <Badge variant="secondary">Mentoring</Badge>
+                  <Badge variant="secondary">Code Reviews</Badge>
+                  <Badge variant="secondary">Team Building</Badge>
+                </div>
+              </div>
+            </div>
+
+            {/* AI-Driven Achievement */}
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div className="order-1">
+                <Card className="p-6 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20 hover-scale">
+                  <div className="text-center space-y-4">
+                    <div className="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center">
+                      <div className="w-8 h-8 bg-primary rounded-full animate-pulse"></div>
+                    </div>
+                    <h4 className="text-lg font-semibold text-primary">AI-Driven Development</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Next-generation workflows
+                    </p>
+                  </div>
+                </Card>
+              </div>
+              <div className="order-2 space-y-4">
+                <h3 className="text-xl font-semibold text-primary">
+                  AI-Driven Development Workflows
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Adopting AI-driven workflows in software development, including automated testing, AI-assisted debugging, and agent-based code generation, which accelerated delivery cycles and improved overall code quality.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary">AI Development</Badge>
+                  <Badge variant="secondary">Automated Testing</Badge>
+                  <Badge variant="secondary">Code Generation</Badge>
+                  <Badge variant="secondary">Quality Improvement</Badge>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -157,7 +157,7 @@ To add new sections to the portfolio:
 
 - 💼 **LinkedIn**: [Clyde Ian Acaso](https://www.linkedin.com/in/clyde-ian-a-1a3339b1/)
 - 💻 **GitHub**: [@clydegold8](https://github.com/clydegold8)
-- 📧 **Email**: Available on request
+- 📧 **Email**: [ian.clyde24@gmail.com](mailto:ian.clyde24@gmail.com)
 - 🌍 **Location**: Open to remote opportunities worldwide
 
 ---

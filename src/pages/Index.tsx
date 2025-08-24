@@ -103,7 +103,7 @@ const Index = () => {
     { name: "Tailwind CSS", years: 3, percentage: 30 },
     { name: "NextJS", years: 2.5, percentage: 25 },
     { name: "Artificial Intelligence and LLM's", years: 3, percentage: 35 },
-    { name: "Leadership / Managerial", years: 5, percentage: 50 },
+    { name: "Leadership / Managerial", years: 3, percentage: 35 },
   ];
 
   const experiences = [

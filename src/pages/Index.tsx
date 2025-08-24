@@ -9,6 +9,10 @@ import achievementAiSetOne from "@/assets/ai_adv1.png";
 import achievementAiSetTwo from "@/assets/ai_adv2.png";
 import achievementAiSetThree from "@/assets/ai_adv3.png";
 import achievementAiSetFour from "@/assets/ai_adv4.png";
+import achievementAiSetFive from "@/assets/ai_adv5.png";
+import dashBoardV1 from "@/assets/dashboardv1.png";
+import dashBoardV2 from "@/assets/dashboardv2.png";
+import dashBoardV3 from "@/assets/dashboardv3.png";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -57,10 +61,11 @@ const Index = () => {
     setLightboxOpen(true);
   };
 
-  const firstAchievementImageSet = [achievementArchitecture];
+  const firstAchievementImageSet = [achievementArchitecture, dashBoardV1, dashBoardV2, dashBoardV3];
   const secondAchievementImageSet = [achievementPerformance];
   const thirdAchievementImageSet = [achievementCollaboration];
   const aiAchievementImageSet = [
+    achievementAiSetFive,
     achievementAiSetOne,
     achievementAiSetTwo,
     achievementAiSetThree,
@@ -340,7 +345,7 @@ const Index = () => {
 
             <div className="flex justify-center space-x-4 animate-fade-in">
               <Badge variant="secondary" className="text-sm">
-                📍 Liloan City, Cebu, Philippines
+                📍 Dauin City, Negros Oriental, Philippines 6217
               </Badge>
               <Badge variant="secondary" className="text-sm">
                 🌍 Remote Expert
@@ -701,7 +706,7 @@ const Index = () => {
                 >
                   {/* Main front image */}
                   <img
-                    src={achievementAiSetOne}
+                    src={achievementAiSetFive}
                     alt=" AI-Powered Advertiser Compliance"
                     className="rounded-lg shadow-lg w-full"
                   />
@@ -768,7 +773,7 @@ const Index = () => {
                   <div className="flex items-center justify-center space-x-2">
                     <Badge>📍</Badge>
                     <span className="text-sm text-muted-foreground">
-                      Liloan City, Cebu, Philippines
+                      Dauin City, Negros Oriental, Philippines 6217
                     </span>
                   </div>
                   <div className="flex items-center justify-center space-x-2">

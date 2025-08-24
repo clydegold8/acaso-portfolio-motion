@@ -3,10 +3,12 @@ import { Moon, Sun, Menu, X, Github, Linkedin, Mail } from "lucide-react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import achievementArchitecture from "@/assets/achievement-architecture.jpg";
-import achievementArchitecture2 from "@/assets/achievement-architecture-2.jpg";
-import achievementArchitecture3 from "@/assets/achievement-architecture-3.jpg";
 import achievementCollaboration from "@/assets/achievement-collaboration.jpg";
 import achievementPerformance from "@/assets/achievement-performance.jpg";
+import achievementAiSetOne from "@/assets/ai_adv1.png";
+import achievementAiSetTwo from "@/assets/ai_adv2.png";
+import achievementAiSetThree from "@/assets/ai_adv3.png";
+import achievementAiSetFour from "@/assets/ai_adv4.png";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -17,18 +19,14 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+import { Collapsible, CollapsibleContent } from "@/components/ui/collapsible";
 
 const Index = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [lightboxImages, setLightboxImages] = useState<any[]>([]);
+  const [lightboxImages, setLightboxImages] = useState<{ src: string }[]>([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
   useEffect(() => {
@@ -53,11 +51,21 @@ const Index = () => {
   };
 
   const openLightbox = (images: string[], index = 0) => {
-    const lightboxSlides = images.map(img => ({ src: img }));
+    const lightboxSlides = images.map((img) => ({ src: img }));
     setLightboxImages(lightboxSlides);
     setLightboxIndex(index);
     setLightboxOpen(true);
   };
+
+  const firstAchievementImageSet = [achievementArchitecture];
+  const secondAchievementImageSet = [achievementPerformance];
+  const thirdAchievementImageSet = [achievementCollaboration];
+  const aiAchievementImageSet = [
+    achievementAiSetOne,
+    achievementAiSetTwo,
+    achievementAiSetThree,
+    achievementAiSetFour,
+  ];
 
   const skills = [
     { name: "HTML/CSS/JavaScript", years: 10, percentage: 100 },
@@ -68,11 +76,31 @@ const Index = () => {
     { name: "NuxtJS", years: 3.5, percentage: 35 },
     { name: "Tailwind CSS", years: 3, percentage: 30 },
     { name: "NextJS", years: 2.5, percentage: 25 },
-    { name: "Artificial Intelligence and LLM's", years: 5, percentage: 50 },
+    { name: "Artificial Intelligence and LLM's", years: 3, percentage: 35 },
     { name: "Leadership / Managerial", years: 5, percentage: 50 },
   ];
 
   const experiences = [
+    {
+      title: "Senior Frontend Developer / Emerging AI Solutions Engineer",
+      company: "Freelance",
+      period: "2025 - Present",
+      description: `
+        In my current freelance role, I continue to work as a Senior Frontend Developer while also expanding into the field of AI solutions engineering, 
+        a new and rapidly evolving area in my career. My primary focus remains on building scalable React applications with strong UI/UX practices and 
+        efficient data integrations, but I am also actively learning and applying AI-driven workflows to advertisement compliance and quality improvement. 
+        As part of this growth, I have been gaining hands-on experience with AWS SageMaker to train and optimize machine learning models that support ad 
+        compliance detection and automated quality scoring. While this is a new discipline for me, I approach it with confidence, leveraging my engineering 
+        background to adapt quickly and deliver meaningful contributions. This blend of established frontend expertise and emerging AI capability reflects my
+         commitment to evolving at pace with technology and creating solutions that deliver both innovation and impact.
+        `,
+      technologies: [
+        "Artificial Intelligence",
+        "AWS - SageMaker",
+        "Leadership",
+        "Front End Development",
+      ],
+    },
     {
       title: "Startup Co-Founder & Fractional CTO",
       company: "Trustloop",
@@ -175,6 +203,34 @@ const Index = () => {
     },
   ];
 
+  // Helper function
+  const renderStackedEffect = (images) => {
+    if (images.length <= 1) return null;
+
+    return (
+      <>
+        {images.slice(1).map((_, i) => (
+          <div
+            key={i}
+            className={`absolute w-full h-full border border-border rounded-lg -z-${
+              i + 10
+            } opacity-${70 - i * 20}`}
+            style={{
+              top: `-${(i + 1) * 8}px`,
+              right: `-${(i + 1) * 8}px`,
+              background: i % 2 === 0 ? "var(--background)" : "var(--muted)",
+            }}
+          />
+        ))}
+
+        {/* Multiple images indicator */}
+        <div className="absolute top-3 right-3 bg-background/80 backdrop-blur-sm rounded-full px-2 py-1 text-xs font-medium border border-border">
+          {images.length} images
+        </div>
+      </>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       {/* Navigation */}
@@ -187,21 +243,26 @@ const Index = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              {["home", "about", "skills", "experience", "achievements", "contact"].map(
-                (item) => (
-                  <button
-                    key={item}
-                    onClick={() => scrollToSection(item)}
-                    className={`capitalize hover:text-primary transition-colors ${
-                      activeSection === item
-                        ? "text-primary"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    {item}
-                  </button>
-                )
-              )}
+              {[
+                "home",
+                "about",
+                "skills",
+                "experience",
+                "achievements",
+                "contact",
+              ].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className={`capitalize hover:text-primary transition-colors ${
+                    activeSection === item
+                      ? "text-primary"
+                      : "text-muted-foreground"
+                  }`}
+                >
+                  {item}
+                </button>
+              ))}
             </div>
 
             <div className="flex items-center space-x-4">
@@ -239,17 +300,22 @@ const Index = () => {
         <Collapsible open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
           <CollapsibleContent className="md:hidden bg-background border-t border-border">
             <div className="px-4 py-2 space-y-1">
-              {["home", "about", "skills", "experience", "achievements", "contact"].map(
-                (item) => (
-                  <button
-                    key={item}
-                    onClick={() => scrollToSection(item)}
-                    className="block w-full text-left px-3 py-2 capitalize hover:bg-accent rounded-md transition-colors"
-                  >
-                    {item}
-                  </button>
-                )
-              )}
+              {[
+                "home",
+                "about",
+                "skills",
+                "experience",
+                "achievements",
+                "contact",
+              ].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className="block w-full text-left px-3 py-2 capitalize hover:bg-accent rounded-md transition-colors"
+                >
+                  {item}
+                </button>
+              ))}
             </div>
           </CollapsibleContent>
         </Collapsible>
@@ -342,7 +408,9 @@ const Index = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <Badge>Start-up Founder</Badge>
-                  <span className="text-muted-foreground">Fractional CTO on Trustloop</span>
+                  <span className="text-muted-foreground">
+                    Fractional CTO on Trustloop
+                  </span>
                 </div>
               </CardContent>
             </Card>
@@ -480,30 +548,30 @@ const Index = () => {
             {/* Architecture Achievement */}
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="order-2 lg:order-1">
-                <div 
+                <div
                   className="relative cursor-pointer hover-scale"
-                  onClick={() => openLightbox([achievementArchitecture, achievementArchitecture2, achievementArchitecture3])}
+                  onClick={() => openLightbox(firstAchievementImageSet)}
                 >
+                  {/* Main front image */}
                   <img
-                    src={achievementArchitecture}
+                    src={firstAchievementImageSet[0]}
                     alt="Scalable front-end architecture"
                     className="rounded-lg shadow-lg w-full"
                   />
-                  {/* Stacked effect for multiple images */}
-                  <div className="absolute -top-2 -right-2 w-full h-full bg-background border border-border rounded-lg -z-10 opacity-70"></div>
-                  <div className="absolute -top-4 -right-4 w-full h-full bg-muted border border-border rounded-lg -z-20 opacity-50"></div>
-                  {/* Multiple images indicator */}
-                  <div className="absolute top-3 right-3 bg-background/80 backdrop-blur-sm rounded-full px-2 py-1 text-xs font-medium border border-border">
-                    3 images
-                  </div>
+
+                  {renderStackedEffect(firstAchievementImageSet)}
                 </div>
               </div>
+
               <div className="order-1 lg:order-2 space-y-4">
                 <h3 className="text-xl font-semibold text-primary">
                   Scalable Front-End Architectures
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Building scalable front-end architectures using React, Vue, Angular, and Nuxt for enterprise-level applications, ensuring performance, maintainability, and cross-browser responsiveness.
+                  Building scalable front-end architectures using React, Vue,
+                  Angular, and Nuxt for enterprise-level applications, ensuring
+                  performance, maintainability, and cross-browser
+                  responsiveness.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <Badge variant="secondary">React</Badge>
@@ -517,15 +585,17 @@ const Index = () => {
             {/* Modernization Achievement */}
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="order-1">
-                <div 
+                <div
                   className="cursor-pointer hover-scale"
-                  onClick={() => openLightbox([achievementPerformance])}
+                  onClick={() => openLightbox(secondAchievementImageSet)}
                 >
                   <img
                     src={achievementPerformance}
                     alt="UI modernization and performance"
                     className="rounded-lg shadow-lg w-full"
                   />
+
+                  {renderStackedEffect(secondAchievementImageSet)}
                 </div>
               </div>
               <div className="order-2 space-y-4">
@@ -533,7 +603,12 @@ const Index = () => {
                   UI Modernization & Performance
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Leading UI modernization efforts where I migrated legacy codebases into modern frameworks (React + TypeScript + TailwindCSS), improving performance and reducing technical debt. Implementing performance optimizations that cut page load times by up to 40%, resulting in a smoother user experience and measurable increases in user engagement.
+                  Leading UI modernization efforts where I migrated legacy
+                  codebases into modern frameworks (React + TypeScript +
+                  TailwindCSS), improving performance and reducing technical
+                  debt. Implementing performance optimizations that cut page
+                  load times by up to 40%, resulting in a smoother user
+                  experience and measurable increases in user engagement.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <Badge variant="secondary">TypeScript</Badge>
@@ -547,9 +622,9 @@ const Index = () => {
             {/* Collaboration Achievement */}
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="order-2 lg:order-1">
-                <div 
+                <div
                   className="cursor-pointer hover-scale"
-                  onClick={() => openLightbox([achievementCollaboration])}
+                  onClick={() => openLightbox(thirdAchievementImageSet)}
                 >
                   <img
                     src={achievementCollaboration}
@@ -557,13 +632,20 @@ const Index = () => {
                     className="rounded-lg shadow-lg w-full"
                   />
                 </div>
+
+                {renderStackedEffect(thirdAchievementImageSet)}
               </div>
               <div className="order-1 lg:order-2 space-y-4">
                 <h3 className="text-xl font-semibold text-primary">
                   Team Leadership & Mentoring
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Driving collaboration across teams, working closely with back-end engineers, designers, and stakeholders to deliver seamless, user-friendly applications on schedule. Mentoring junior developers by conducting code reviews, sharing best practices, and introducing scalable component patterns—helping elevate overall team productivity.
+                  Driving collaboration across teams, working closely with
+                  back-end engineers, designers, and stakeholders to deliver
+                  seamless, user-friendly applications on schedule. Mentoring
+                  junior developers by conducting code reviews, sharing best
+                  practices, and introducing scalable component patterns—helping
+                  elevate overall team productivity.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <Badge variant="secondary">Leadership</Badge>
@@ -582,7 +664,9 @@ const Index = () => {
                     <div className="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center">
                       <div className="w-8 h-8 bg-primary rounded-full animate-pulse"></div>
                     </div>
-                    <h4 className="text-lg font-semibold text-primary">AI-Driven Development</h4>
+                    <h4 className="text-lg font-semibold text-primary">
+                      AI-Driven Development
+                    </h4>
                     <p className="text-sm text-muted-foreground">
                       Next-generation workflows
                     </p>
@@ -594,13 +678,53 @@ const Index = () => {
                   AI-Driven Development Workflows
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Adopting AI-driven workflows in software development, including automated testing, AI-assisted debugging, and agent-based code generation, which accelerated delivery cycles and improved overall code quality.
+                  Adopting AI-driven workflows in software development,
+                  including automated testing, AI-assisted debugging, and
+                  agent-based code generation, which accelerated delivery cycles
+                  and improved overall code quality.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <Badge variant="secondary">AI Development</Badge>
                   <Badge variant="secondary">Automated Testing</Badge>
                   <Badge variant="secondary">Code Generation</Badge>
                   <Badge variant="secondary">Quality Improvement</Badge>
+                </div>
+              </div>
+            </div>
+
+            {/* AI-Powered Advertiser Compliance */}
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div className="order-2 lg:order-1">
+                <div
+                  className="relative cursor-pointer hover-scale"
+                  onClick={() => openLightbox(aiAchievementImageSet)}
+                >
+                  {/* Main front image */}
+                  <img
+                    src={achievementAiSetOne}
+                    alt=" AI-Powered Advertiser Compliance"
+                    className="rounded-lg shadow-lg w-full"
+                  />
+
+                  {renderStackedEffect(aiAchievementImageSet)}
+                </div>
+              </div>
+              <div className="order-2 space-y-4">
+                <h3 className="text-xl font-semibold text-primary">
+                  AI-Powered Advertiser Compliance
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Developed AI-driven solutions for advertisement compliance,
+                  enabling automated detection, scoring, and review of ad
+                  content against regulatory standards. This reduced manual
+                  effort, improved accuracy, and ensured faster compliance
+                  checks while maintaining trust and transparency.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary">Advertisement Compliance</Badge>
+                  <Badge variant="secondary">AI Automation</Badge>
+                  <Badge variant="secondary">Regulatory Alignment</Badge>
+                  <Badge variant="secondary">Quality Assurance</Badge>
                 </div>
               </div>
             </div>

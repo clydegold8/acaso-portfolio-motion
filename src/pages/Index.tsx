@@ -61,7 +61,12 @@ const Index = () => {
     setLightboxOpen(true);
   };
 
-  const firstAchievementImageSet = [achievementArchitecture, dashBoardV1, dashBoardV2, dashBoardV3];
+  const firstAchievementImageSet = [
+    achievementArchitecture,
+    dashBoardV1,
+    dashBoardV2,
+    dashBoardV3,
+  ];
   const secondAchievementImageSet = [achievementPerformance];
   const thirdAchievementImageSet = [achievementCollaboration];
   const aiAchievementImageSet = [
@@ -374,18 +379,21 @@ const Index = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-primary mb-4">About Me</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Hi, I'm Clyde Ian Acaso, a Front-End Developer with over 10 years
-              of experience crafting fast, responsive, and scalable web
-              applications. I specialize in React, VueJS, Angular, and other
-              modern frameworks, with a strong foundation in HTML, CSS, and
-              JavaScript. I've led front-end architecture for global remote
-              teams, optimized performance across large-scale apps, and built
-              component-based systems that improve maintainability and user
-              experience. With hands-on experience in mobile development
-              (Flutter, Ionic, React Native) and full-stack technologies like
-              PHP and MySQL, I bring a versatile and user-focused approach to
-              every project. I’m passionate about clean code, UI/UX best
-              practices, and building intuitive digital experiences.
+              Hi, I'm Clyde Ian Acaso, a Front-End Developer with 10+ years of
+              experience building fast, scalable, and user-focused web
+              applications using React, VueJS, Angular, and modern frameworks.
+              I’ve led front-end architecture for global teams, optimized
+              performance across large-scale apps, and built component systems
+              that enhance both maintainability and user experience. Alongside
+              my mobile and full-stack background, I’m now expanding into AI
+              solutions engineering exploring how large language models (LLMs),
+              model context protocols (MCPs), and AI agents can be applied to
+              solve real-world problems such as advertisement compliance,
+              workflow automation, and intelligent user experiences. While this
+              is a new and evolving field for me, I bring the same passion for
+              clean code, UI/UX best practices, and rapid learning, combining
+              technical expertise with practical innovation to deliver impactful
+              digital solutions.
             </p>
           </div>
 

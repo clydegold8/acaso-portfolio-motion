@@ -13,6 +13,14 @@ import achievementAiSetFive from "@/assets/ai_adv5.png";
 import dashBoardV1 from "@/assets/dashboardv1.png";
 import dashBoardV2 from "@/assets/dashboardv2.png";
 import dashBoardV3 from "@/assets/dashboardv3.png";
+import dashBoardV4 from "@/assets/dashboardv4.png";
+import webV1 from "@/assets/bdtr.png";
+import webV2 from "@/assets/cbi.png";
+import webV3 from "@/assets/ce.png";
+import webV4 from "@/assets/ire.png";
+import webV5 from "@/assets/btr.png";
+import webV6 from "@/assets/eb.png";
+import webV7 from "@/assets/tta.png";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -66,6 +74,14 @@ const Index = () => {
     dashBoardV1,
     dashBoardV2,
     dashBoardV3,
+    dashBoardV4,
+    webV1,
+    webV2,
+    webV3,
+    webV4,
+    webV5,
+    webV6,
+    webV7,
   ];
   const secondAchievementImageSet = [achievementPerformance];
   const thirdAchievementImageSet = [achievementCollaboration];
@@ -219,19 +235,22 @@ const Index = () => {
 
     return (
       <>
-        {images.slice(1).map((_, i) => (
-          <div
-            key={i}
-            className={`absolute w-full h-full border border-border rounded-lg -z-${
-              i + 10
-            } opacity-${70 - i * 20}`}
-            style={{
-              top: `-${(i + 1) * 8}px`,
-              right: `-${(i + 1) * 8}px`,
-              background: i % 2 === 0 ? "var(--background)" : "var(--muted)",
-            }}
-          />
-        ))}
+        {images.slice(1).map(
+          (_, i) =>
+            i < 2 && (
+              <div
+                key={i}
+                className={`absolute w-full h-full border border-border rounded-lg -z-${
+                  i + 10
+                } opacity-${70 - i * 20}`}
+                style={{
+                  top: `-${(i + 1) * 8}px`,
+                  right: `-${(i + 1) * 8}px`,
+                  background: "var(--background)",
+                }}
+              />
+            )
+        )}
 
         {/* Multiple images indicator */}
         <div className="absolute top-3 right-3 bg-background/80 backdrop-blur-sm rounded-full px-2 py-1 text-xs font-medium border border-border">
@@ -581,16 +600,18 @@ const Index = () => {
                   Scalable Front-End Architectures
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Building scalable front-end architectures using React, Vue,
-                  Angular, and Nuxt for enterprise-level applications, ensuring
-                  performance, maintainability, and cross-browser
-                  responsiveness.
+                  Built scalable front-end architectures using React, Vue,
+                  Angular, and Nuxt for enterprise-level applications. Developed
+                  modern websites with current technologies, following
+                  mobile-first and responsive design principles to ensure
+                  performance, accessibility, and seamless user experiences
+                  across devices.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <Badge variant="secondary">React</Badge>
                   <Badge variant="secondary">Vue</Badge>
                   <Badge variant="secondary">Angular</Badge>
-                  <Badge variant="secondary">Enterprise Scale</Badge>
+                  <Badge variant="secondary">Enterprise Scale / PWA</Badge>
                 </div>
               </div>
             </div>

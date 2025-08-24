@@ -707,8 +707,11 @@ const Index = () => {
                   {/* Main front image */}
                   <img
                     src={achievementAiSetFive}
-                    alt=" AI-Powered Advertiser Compliance"
+                    alt="AI-Powered Advertiser Compliance - Advanced AI system for automated compliance monitoring and validation"
                     className="rounded-lg shadow-lg w-full"
+                    loading="lazy"
+                    width="400"
+                    height="300"
                   />
 
                   {renderStackedEffect(aiAchievementImageSet)}

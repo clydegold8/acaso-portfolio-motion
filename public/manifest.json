@@ -1,0 +1,16 @@
+{
+  "name": "Clyde Ian Acaso - Full Stack Developer Portfolio",
+  "short_name": "Clyde Ian Portfolio",
+  "description": "Experienced Full Stack Developer specializing in React, Node.js, Python, and cloud solutions",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ]
+}

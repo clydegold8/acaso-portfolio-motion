@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { Moon, Sun, Menu, X, Github, Linkedin, Mail } from "lucide-react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 import achievementArchitecture from "@/assets/achievement-architecture.jpg";
+import achievementArchitecture2 from "@/assets/achievement-architecture-2.jpg";
+import achievementArchitecture3 from "@/assets/achievement-architecture-3.jpg";
 import achievementCollaboration from "@/assets/achievement-collaboration.jpg";
 import achievementPerformance from "@/assets/achievement-performance.jpg";
 import { Button } from "@/components/ui/button";
@@ -23,6 +27,9 @@ const Index = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImages, setLightboxImages] = useState<any[]>([]);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   useEffect(() => {
     // Check system preference
@@ -43,6 +50,13 @@ const Index = () => {
     element?.scrollIntoView({ behavior: "smooth" });
     setActiveSection(sectionId);
     setMobileMenuOpen(false);
+  };
+
+  const openLightbox = (images: string[], index = 0) => {
+    const lightboxSlides = images.map(img => ({ src: img }));
+    setLightboxImages(lightboxSlides);
+    setLightboxIndex(index);
+    setLightboxOpen(true);
   };
 
   const skills = [
@@ -466,11 +480,23 @@ const Index = () => {
             {/* Architecture Achievement */}
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="order-2 lg:order-1">
-                <img
-                  src={achievementArchitecture}
-                  alt="Scalable front-end architecture"
-                  className="rounded-lg shadow-lg hover-scale"
-                />
+                <div 
+                  className="relative cursor-pointer hover-scale"
+                  onClick={() => openLightbox([achievementArchitecture, achievementArchitecture2, achievementArchitecture3])}
+                >
+                  <img
+                    src={achievementArchitecture}
+                    alt="Scalable front-end architecture"
+                    className="rounded-lg shadow-lg w-full"
+                  />
+                  {/* Stacked effect for multiple images */}
+                  <div className="absolute -top-2 -right-2 w-full h-full bg-background border border-border rounded-lg -z-10 opacity-70"></div>
+                  <div className="absolute -top-4 -right-4 w-full h-full bg-muted border border-border rounded-lg -z-20 opacity-50"></div>
+                  {/* Multiple images indicator */}
+                  <div className="absolute top-3 right-3 bg-background/80 backdrop-blur-sm rounded-full px-2 py-1 text-xs font-medium border border-border">
+                    3 images
+                  </div>
+                </div>
               </div>
               <div className="order-1 lg:order-2 space-y-4">
                 <h3 className="text-xl font-semibold text-primary">
@@ -491,11 +517,16 @@ const Index = () => {
             {/* Modernization Achievement */}
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="order-1">
-                <img
-                  src={achievementPerformance}
-                  alt="UI modernization and performance"
-                  className="rounded-lg shadow-lg hover-scale"
-                />
+                <div 
+                  className="cursor-pointer hover-scale"
+                  onClick={() => openLightbox([achievementPerformance])}
+                >
+                  <img
+                    src={achievementPerformance}
+                    alt="UI modernization and performance"
+                    className="rounded-lg shadow-lg w-full"
+                  />
+                </div>
               </div>
               <div className="order-2 space-y-4">
                 <h3 className="text-xl font-semibold text-primary">
@@ -516,11 +547,16 @@ const Index = () => {
             {/* Collaboration Achievement */}
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="order-2 lg:order-1">
-                <img
-                  src={achievementCollaboration}
-                  alt="Team collaboration and mentoring"
-                  className="rounded-lg shadow-lg hover-scale"
-                />
+                <div 
+                  className="cursor-pointer hover-scale"
+                  onClick={() => openLightbox([achievementCollaboration])}
+                >
+                  <img
+                    src={achievementCollaboration}
+                    alt="Team collaboration and mentoring"
+                    className="rounded-lg shadow-lg w-full"
+                  />
+                </div>
               </div>
               <div className="order-1 lg:order-2 space-y-4">
                 <h3 className="text-xl font-semibold text-primary">
@@ -571,6 +607,17 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Lightbox */}
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        slides={lightboxImages}
+        index={lightboxIndex}
+        styles={{
+          container: { backgroundColor: "rgba(0, 0, 0, 0.9)" },
+        }}
+      />
 
       {/* Contact Section */}
       <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8">

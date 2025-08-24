@@ -174,6 +174,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 *Crafting exceptional web experiences, one component at a time*
 
-[![Portfolio](https://img.shields.io/badge/View-Live%20Portfolio-brightgreen?style=for-the-badge)](https://your-portfolio-url.com)
+[![Portfolio](https://img.shields.io/badge/View-Live%20Portfolio-brightgreen?style=for-the-badge)](https://acaso-portfolio-motion.vercel.app)
 
 </div>

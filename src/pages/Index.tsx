@@ -803,9 +803,15 @@ const Index = () => {
                     </span>
                   </div>
                   <div className="flex items-center justify-center space-x-2">
+                    <Badge>🏠</Badge>
+                    <span className="text-sm text-muted-foreground">
+                      Home: Brgy. Cotcot, Liloan City, Cebu 6002
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-center space-x-2">
                     <Badge>📍</Badge>
                     <span className="text-sm text-muted-foreground">
-                      Dauin City, Negros Oriental, Philippines 6217
+                      Current: Dauin City, Negros Oriental, Philippines 6217
                     </span>
                   </div>
                   <div className="flex items-center justify-center space-x-2">
